@@ -149,10 +149,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesActionPerformed
         // TODO add your handling code here:
-         GestionClientes gestionClientes = new GestionClientes(); // Crear la ventana
-         gestionClientes.setVisible(true); // Hacer visible la ventana
-         gestionClientes.setLocationRelativeTo(null); // Centrar la ventana
-         this.setVisible(false);
+         GestionClientes Gestionclientes = new GestionClientes(this); // Pasamos el menú
+    Gestionclientes.setVisible(true);
+    Gestionclientes.setLocationRelativeTo(null);
+    this.setVisible(false); // Solo ocultar, no cerrar
     }//GEN-LAST:event_clientesActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

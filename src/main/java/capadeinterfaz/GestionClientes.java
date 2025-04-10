@@ -16,11 +16,15 @@ import javax.swing.table.DefaultTableModel;
 public class GestionClientes extends javax.swing.JFrame {
     
     private ClienteNegocio clienteNegocio = new ClienteNegocio();
+    private MenuPrincipal menuPrincipal;
+    
     /**
      * Creates new form GestionClientes
      */
-    public GestionClientes() {
+    public GestionClientes(MenuPrincipal menu) {
+        
         initComponents();
+         this.menuPrincipal = menu;
         cargarClientes();
     }
     private void cargarClientes() {
@@ -368,11 +372,11 @@ public class GestionClientes extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
-        this.dispose(); // Cierra la ventana actual
-        MenuPrincipal menu = new MenuPrincipal(); // Crea una nueva instancia del menú
-        menu.setVisible(true); // Muestra la ventana del menú
+         this.dispose(); // Cierra GestionMembresias
+         if (menuPrincipal != null) {
+        menuPrincipal.setVisible(true); // Vuelve al menú original
     }//GEN-LAST:event_btnVolverActionPerformed
-
+} 
     /**
      * @param args the command line arguments
      */

@@ -165,4 +165,38 @@ public class MembresiaDAO {
             return false;
         }
     }
+     // Método para obtener membresía por teléfono
+    public Membresia buscarPorTelefono(String telefono) {
+        Membresia membresia = null;
+
+        String query = "SELECT m.id_cliente, c.nombre, c.apellido, c.telefono, m.tipo, m.fecha_inicio, m.fecha_fin, m.estado " +
+                       "FROM membresias m " +
+                       "INNER JOIN clientes c ON c.id = m.id_cliente " +
+                       "WHERE c.telefono = ?";
+
+        try (Connection conn = Conexion.conectar();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, telefono); // Se establece el teléfono como parámetro
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                // Si se encuentra el cliente, mapeamos los resultados a un objeto Membresia
+                membresia = new Membresia(
+                        rs.getInt("id_cliente"),
+                        rs.getString("nombre"),
+                        rs.getString("apellido"),
+                        rs.getString("telefono"),
+                        rs.getString("tipo"),
+                        rs.getDate("fecha_inicio"),
+                        rs.getDate("fecha_fin"),
+                        rs.getString("estado")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return membresia;
+    }
 }

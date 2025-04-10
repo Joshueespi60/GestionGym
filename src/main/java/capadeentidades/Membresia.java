@@ -4,14 +4,14 @@
  */
 package capadeentidades;
 
+import java.util.Date;
+
 /**
  *
  * @author Joshue
  */
-import java.util.Date;
-
 public class Membresia {
-    private int idCliente;
+    private int idCliente;  // El id del cliente
     private String nombre;
     private String apellido;
     private String telefono;
@@ -49,6 +49,11 @@ public class Membresia {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    
+    // Agregamos el método getId() que retorna el idCliente
+    public int getId() {
+        return idCliente;  // Devolvemos el idCliente como el identificador
+    }
 
     // Otros getters y setters
     public int getIdCliente() { return idCliente; }
@@ -59,4 +64,5 @@ public class Membresia {
     public Date getFechaInicio() { return fechaInicio; }
     public Date getFechaVencimiento() { return fechaVencimiento; }
 }
+
 

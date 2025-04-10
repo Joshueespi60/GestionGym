@@ -172,10 +172,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-         RegistroAsistencia registroasistencia = new RegistroAsistencia(); // Crear la ventana
-         registroasistencia.setVisible(true); // Hacer visible la ventana
-         registroasistencia.setLocationRelativeTo(null); // Centrar la ventana
-         this.setVisible(false);
+        RegistroAsistencia Registroasitencia = new RegistroAsistencia(this); // Pasamos el menú
+        Registroasitencia.setVisible(true);
+        Registroasitencia.setLocationRelativeTo(null);
+        this.setVisible(false); // Solo ocultar, no cerrar
     }//GEN-LAST:event_jButton3ActionPerformed
     
     /**
